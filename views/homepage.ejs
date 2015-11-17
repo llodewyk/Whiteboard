@@ -1,14 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    </head>
+
+<body>
+
+
 <div ng-app="Whiteboard" ng-controller="BaseCtrl">
-    <h1>Whiteboard</h1><br><br>
-    <h2>Have a question?  Input it below.</h2>
-    <form>
-    	<input type="text" name="text" id="question"><br>
-    	<input type="submit" id="submit">
-    </form>
-    <h3>Questions asked:</h3>
-    <ul>
-        <li ng-repeat="question in questions">
-            <span>{{question.text}}</span>
-        </li>
-    </ul>
+
+<div class="container">
+    <div class="row">
+        <div id= "header">
+        <h1>Whiteboard</h1><br>
+        </div>
+
+        <div class="col-sm-8">
+            <h1>Whiteboard</h1><br><br>
+
+            <!-- VIDEO, WHITEBOARD, CHAT TABS -->
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Video </a></li>
+
+                <li><a href="#tab2" data-toggle="tab">Whiteboard</a></li>
+
+                <li><a href="#tab3" data-toggle="tab">Chat </a></li>
+
+                <li><a href="#tab4" data-toggle="tab">Question </a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <p> VIDEO </p>
+                </div>
+
+                <div class="tab-pane" id="tab2">
+                    <p> WHITEBOARD </p>
+                </div>
+
+                <div class="tab-pane" id="tab3">
+                    <p> CHAT </p>
+                </div>
+
+                <div class="tab-pane" id="tab4">
+                    <p> QUESTION </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <table class="table table-hover">
+
+                <thead>
+                    <div class="col-sm-4">
+                        <h3>Queue</h3>
+                    </div>
+
+                   <div class="col-sm-2">
+                    </div>
+
+                    <div class="col-sm-4">
+                        <!--- ADD NEW QUESTION -->
+                          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ New Question</button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Ask a question</h4>
+                                </div>
+
+                                <form>
+                                <div class="modal-body">   
+                                        <input type="text" name="text" id="question"><br>
+                                </div>
+
+                                <div class="modal-footer">
+                                  <input type="submit" id="submit">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                                </form>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          
+                        </div>
+                    </div>
+
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="question in questions">
+                        <td>
+                        <p><strong> STUDENT (5:23 PM) </strong><p>
+                        <p>
+                        <span>{{question.text}}</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
 </div>
+
+</div>
+
+</body>
+</html>
